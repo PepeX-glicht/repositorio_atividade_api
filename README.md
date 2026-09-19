@@ -55,24 +55,62 @@ npm install -g vercel
 
 ---
 
-## Variáveis de ambiente
+## Configuração das variáveis de ambiente
 
-A aplicação utiliza as seguintes variáveis:
+Para que o projeto consiga se conectar ao banco de dados do Supabase, é necessário configurar as variáveis de ambiente.
 
-```env
-SUPABASE_URL=
-SUPABASE_KEY=
+Por segurança, as credenciais do banco de dados não estão armazenadas neste repositório.
+
+**As credenciais necessárias serão fornecidas separadamente para o instrutor.**
+
+### 1. Criar o arquivo `.env.local`
+
+Na pasta principal do projeto, crie um arquivo chamado:
+
+```text
+.env.local
 ```
 
-Por segurança, os valores reais não estão armazenados no GitHub.
+O arquivo deve ficar no mesmo local do `package.json`, conforme o exemplo:
 
-Para executar o projeto conectado ao banco de dados, essas variáveis precisam estar configuradas no ambiente.
+```text
+repositorio_atividade_api/
+│
+├── api/
+│   └── alunos.js
+│
+├── .env.local
+├── .gitignore
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+### 2. Configurar as credenciais
+
+Dentro do arquivo `.env.local`, adicione:
+
+```env
+SUPABASE_URL=COLE_AQUI_A_URL
+SUPABASE_KEY=COLE_AQUI_A_CHAVE
+```
+
+Substitua `COLE_AQUI_A_URL` e `COLE_AQUI_A_CHAVE` pelas credenciais fornecidas separadamente.
+
+Exemplo da estrutura:
+
+```env
+SUPABASE_URL=https://xxxxxxxx.supabase.co
+SUPABASE_KEY=xxxxxxxxxxxxxxxx
+```
+
+> **Importante:** não é necessário criar um arquivo `.env`. Para executar este projeto localmente, utilize o `.env.local`.
 
 ---
 
 ## Executando o projeto
 
-No terminal, execute:
+Após instalar as dependências e configurar o `.env.local`, execute no terminal:
 
 ```bash
 vercel dev
@@ -141,6 +179,8 @@ http://localhost:3000/api/alunos
 
 O registro será inserido na mesma tabela `alunos` utilizada pelo GET.
 
+Após realizar o POST, é possível acessar novamente o endpoint GET para verificar se o novo registro foi cadastrado.
+
 ---
 
 ## API publicada
@@ -155,7 +195,7 @@ https://repositorio-atividade-api.vercel.app/api/alunos
 
 O endpoint acima pode ser aberto diretamente no navegador para testar o método GET.
 
-Para testar o POST publicado, utilize o mesmo caminho no Postman ou Thunder Client, alterando o método para `POST`.
+Para testar o POST publicado, utilize o mesmo endereço no Postman ou Thunder Client, alterando o método para `POST` e enviando um JSON no corpo da requisição.
 
 ---
 
@@ -167,12 +207,19 @@ repositorio_atividade_api/
 ├── api/
 │   └── alunos.js
 │
+├── .env.local
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
 └── README.md
 ```
 
+> O arquivo `.env.local` deve ser criado manualmente após clonar o projeto e não estará disponível no GitHub.
+
+---
+
 ## Observação
 
-Os arquivos `.env` e `.env.local` não são enviados ao GitHub, pois podem conter credenciais de acesso ao banco de dados.
+Os arquivos `.env` e `.env.local` estão incluídos no `.gitignore` e, portanto, não são enviados ao GitHub, pois podem conter credenciais de acesso ao banco de dados.
+
+As credenciais necessárias para preencher o `.env.local` serão fornecidas ao professor separadamente.
