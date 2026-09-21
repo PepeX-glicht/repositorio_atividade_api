@@ -1,6 +1,6 @@
 # Atividade API - GET e POST
 
-Projeto desenvolvido para a atividade de criação e publicação de uma API.
+Projeto desenvolvido por Pedro Henrique e Daniel Silva Marques para a atividade de criação e publicação de uma API.
 
 A API foi desenvolvida utilizando **Node.js**, **Supabase** como banco de dados e **Vercel** para execução e publicação.
 
